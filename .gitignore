@@ -27,3 +27,5 @@ config/initializers/secret_token.rb
 /log/*.log
 /tmp
 
+# Ignore all vim shit
+.*.sw*
