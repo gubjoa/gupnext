@@ -53,4 +53,6 @@ Gupnext::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get 'publications/' => 'publication#index'
+  get 'publications/:id' => 'publication#show'
 end
