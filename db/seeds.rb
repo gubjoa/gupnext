@@ -32,11 +32,11 @@ departments = Department.create([
 ])
 
 publications = Publication.create([
-	{pubid: 20, name: 'Test title', publication_type_id: publication_types.first, language_id: languages.first}
+	{pubid: 20, title: 'Test title', publication_type_id: publication_types.first.id, language_id: languages.first.id}
 ])
 
 addresses = Address.create([
-	{publication_id: publications.first, person_id: people.first, department_id: departments.first},
-	{publication_id: publications.first, person_id: people.first, department_id: departments.last},
-	{publication_id: publications.first, person_id: people.last, department_id: departments.last}
+	{publication_id: publications.first.id, person_id: people.first.id, department_id: departments.first.id},
+	{publication_id: publications.first.id, person_id: people.first.id, department_id: departments.last.id},
+	{publication_id: publications.first.id, person_id: people.last.id, department_id: departments.last.id}
 ])
