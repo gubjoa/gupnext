@@ -1,10 +1,15 @@
 class PublicationController < ApplicationController
 	def index
-		@query = params[:q]
-		if @query
-			render json: SolrPublication::get_publications(@query)
+    query = params[:q]
+    params[:start] ? start = params[:start] : start = 0
+    params[:rows] ? rows = params[:rows] : rows = 10
+
+    if query
+			render json: SolrPublication::get_publications(query, start, rows)
 		end
 	end
+
+
 
 	def show
 		@publicationId = params[:id]
