@@ -16,4 +16,14 @@ class PublicationController < ApplicationController
 		@jsondata = Publication::testj
 		render json: @jsondata
 	end
+  
+  
+  def test
+		id = params[:id]
+    
+    @publication = Publication.find(id)
+    @addresses = Address.find_by(publication_id: id)
+    puts @addresses.inspect
+    
+  end
 end
