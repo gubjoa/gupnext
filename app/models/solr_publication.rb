@@ -9,7 +9,7 @@ class SolrPublication < ActiveRecord::Base
   def self.get_publications(query, start, rows)
     uri = URI(SOLR_BASE_ULR + SOLR_PUBLICATION_INDEX)
     params = { :q => "simple:#{query}", 
-      :fl => 'pubid,title,pubyear,pubtypeid,pubtype_sv,pubtype_en', 
+      :fl => 'pubid,title,pubyear,pubtypeid,pubtype_sv,pubtype_en,person,fulltext_url', 
       :start => start,
       :rows => rows,
       :wt => 'json' }
