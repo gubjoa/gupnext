@@ -56,7 +56,9 @@ Gupnext::Application.routes.draw do
   get 'publications/' => 'publication#index'
   get 'publications/:id' => 'publication#show'
 
+
   # Just for testing, will be removed
-  get 'publications/test/:id(.:format)' => 'publication#test'
+  get 'test/publications/:id(.:format)' => 'publication#test'
+  get 'test/publication/:id' => 'publication#get_by_solr'
 
 end

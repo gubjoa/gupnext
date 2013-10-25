@@ -20,4 +20,18 @@ class SolrPublication < ActiveRecord::Base
     # return the complete SOLR response
     return parsed
   end
+
+  def self.get_publication(pubid)
+    uri = URI(SOLR_BASE_ULR + SOLR_PUBLICATION_INDEX)
+    params = { :q => "pubid:#{pubid}", 
+      :fl => 'pubid,title,pubyear,pubtypeid,pubtype_sv,pubtype_en,language_id,language_en,language_sv,person,fulltext_url,abstract', 
+      :wt => 'json' }
+    uri.query = URI.encode_www_form(params)
+    puts uri.query
+    res = Net::HTTP.get_response(uri) 
+    parsed = JSON.parse(res.body)
+    # remove the SOLR "frame"
+    return parsed['response']['docs'][0]
+  end
+
 end

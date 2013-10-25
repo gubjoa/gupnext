@@ -9,8 +9,14 @@ class PublicationController < ApplicationController
 		end
 	end
 
-
-
+  def get_by_solr
+    pubid = params[:id]
+    if pubid
+			render json: SolrPublication::get_publication(pubid)
+		end
+  end
+  
+  
 	def show
 		@publicationId = params[:id]
 		@jsondata = Publication::testj
@@ -24,6 +30,6 @@ class PublicationController < ApplicationController
     @publication = Publication.find(id)
     @addresses = Address.find_by(publication_id: id)
     puts @addresses.inspect
-    
+
   end
 end
