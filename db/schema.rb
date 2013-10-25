@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024073926) do
+ActiveRecord::Schema.define(version: 20131024135059) do
 
   create_table "addresses", force: true do |t|
     t.integer  "publication_id"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20131024073926) do
 
   create_table "publications", force: true do |t|
     t.integer  "pubid"
-    t.string   "name"
+    t.string   "title"
     t.integer  "publication_type_id"
     t.integer  "language_id"
     t.string   "created_by"

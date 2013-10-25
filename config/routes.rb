@@ -58,4 +58,7 @@ Gupnext::Application.routes.draw do
   post 'publications/' => 'publication#create'
   put 'publications/:id' => 'publication#update'
   delete 'publications/:id' => 'publication#destroy'
+
+  # Just for testing, will be removed
+  get 'publications/test/:id(.:format)' => 'publication#test'
 end
