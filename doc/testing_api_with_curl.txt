@@ -1,0 +1,31 @@
+Create POST
+-----------
+$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"pubid":23,"title":"Test title","publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-24T13:00:44.945Z","updated_at":"2013-10-24T13:00:44.945Z","deleted_at":null}' http://localhost:3000/publications
+
+Retreive GET
+------------
+$ curl -i -H "Accept: application/json" http://localhost:3000/publications/
+$ curl -i -H "Accept: application/json" http://localhost:3000/publications/1
+
+The resource uri needs to be quoted if you pass in multiple query parameters separated by ‘&’.
+If you have spaces in the query values, you should encode them i.e. either
+use the ‘+’ symbol or %20 instead of the space.
+
+Update PUT
+----------
+$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"pubid":23,"title":"Test title","publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-24T13:00:44.945Z","updated_at":"2013-10-24T13:00:44.945Z","deleted_at":null}'  http://localhost:3000/publications/1
+
+Delete DELETE
+-------------
+$ curl -i -H "Accept: application/json" -X DELETE http://localhost:3000/publications/1
+
+
+Curl parameters
+---------------
+-i Show Response Headers
+-H Pass a HTTP method name
+-d pass in parameters enclodśed in quotes
+
+JSON Representation
+-------------------
+{"pubid":23,"title":"Test title","publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-24T13:00:44.945Z","updated_at":"2013-10-24T13:00:44.945Z","deleted_at":null}
