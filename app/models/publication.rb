@@ -9,46 +9,6 @@ class Publication < ActiveRecord::Base
   belongs_to :publication_type
   belongs_to :language
 
-  def self.getz
-    {
-      :id => "1",
-      :title => "pelle",
-      :pubyear => "2007",
-      :pubtype_id => "15",
-      :pubtype_sv => "Skräp",
-      :pubtype_en => "Trash"
-    }
-  end
-
-  def self.listz
-    [
-      {
-      :id => "1",
-      :title => "pelle",
-      :pubyear => "2007",
-      :pubtype_id => "15",
-      :pubtype_sv => "Skräp",
-      :pubtype_en => "Trash"
-      },
-      {
-      :id => "2",
-      :title => "pelle",
-      :pubyear => "2007",
-      :pubtype_id => "15",
-      :pubtype_sv => "Skräp",
-      :pubtype_en => "Trash"
-      },
-      {
-      :id => "3",
-      :title => "pelle",
-      :pubyear => "2007",
-      :pubtype_id => "15",
-      :pubtype_sv => "Skräp",
-      :pubtype_en => "Trash"
-      }
-    ]
-  end
-
   def self.testj
     {
         'modified'=>'2010-10-19T11:49:32Z',
