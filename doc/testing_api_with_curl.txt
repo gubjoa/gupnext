@@ -1,7 +1,11 @@
 Create POST
 -----------
-$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"pubid":23,"title":"Test title","publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-24T13:00:44.945Z","updated_at":"2013-10-24T13:00:44.945Z","deleted_at":null}' http://localhost:3000/publications
+$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"pubid":230,"title":"Another title","publication_type_id":null,"language_id":null,"created_by":"xanjoo","updated_by":"xanjoo"}' http://localhost:3000/publications/
+$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"pubid":null,"title":null,"publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-25T11:54:48.005Z","updated_at":"2013-10-25T11:54:48.005Z","deleted_at":null}' http://localhost:3000/publications/
 
+{"pubid"=>24, "title"=>"Test title", "publication_type_id"=>nil, "language_id"=>nil, "created_by"=>"xanjoo", "updated_by"=>"xanjoo"}
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"pubid":24,"title":"Test title","publication_type_id":null,"language_id":null,"created_by":"xanjoo","updated_by":"xanjoo"}' http://localhost:3000/publications/
+{"pubid":null,"title":null,"publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-25T11:54:48.005Z","updated_at":"2013-10-25T11:54:48.005Z","deleted_at":null}
 Retreive GET
 ------------
 $ curl -i -H "Accept: application/json" http://localhost:3000/publications/
@@ -13,7 +17,7 @@ use the ‘+’ symbol or %20 instead of the space.
 
 Update PUT
 ----------
-$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"pubid":23,"title":"Test title","publication_type_id":null,"language_id":null,"created_by":null,"updated_by":null,"deleted_by":null,"created_at":"2013-10-24T13:00:44.945Z","updated_at":"2013-10-24T13:00:44.945Z","deleted_at":null}'  http://localhost:3000/publications/1
+$ curl -v -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"title":"Another better title","updated_by":xanjoo}'  http://localhost:3000/publications/1
 
 Delete DELETE
 -------------

@@ -24,9 +24,12 @@ class PublicationController < ApplicationController
 
   # POST /publications/
   def create
-    publication = Publication.new(params[:publication])
-    if publication.save
-      headers['location'] = "/publications/#{publication.id}"
+    status = "501 Internal Server Error"
+    my_data = params[:publication].to_hash
+    
+    obj = Publication.new(my_data)
+    if obj.save
+      headers['location'] = "/publications/#{obj.id}"
       status = "201 Created"
     else
       status = "501 Internal Server Error"
@@ -41,7 +44,7 @@ class PublicationController < ApplicationController
     publication = Publication.find_by_id(publication_id)
 
     if publication
-      publication.update_attributes(params[:publication])
+      publication.update_attributes(params[:publication].to_hash)
       # TODO Put in some more code to check attributes in JSON
       # We dont want to change each and every attribute like created_by
       if publication.save
