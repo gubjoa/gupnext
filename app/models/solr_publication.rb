@@ -3,13 +3,13 @@ require 'net/http'
 
 # Model to SOLR index, to perform search and get operations
 class SolrPublication < ActiveRecord::Base
-#  SOLR_BASE_ULR = 'http://gup.ub.gu.se/'
+#  SOLR_BASE_URL = 'http://gup.ub.gu.se/'
 #  SOLR_PUBLICATION_INDEX = 'solr/publications/scigloo'
-  SOLR_BASE_ULR = 'http://130.241.35.208:8080/'
+  SOLR_BASE_URL = 'http://130.241.35.208:8080/'
   SOLR_PUBLICATION_INDEX = 'solr/scigloo/select'
 
   def self.get_publications(query, start, rows)
-    uri = URI(SOLR_BASE_ULR + SOLR_PUBLICATION_INDEX)
+    uri = URI(SOLR_BASE_URL + SOLR_PUBLICATION_INDEX)
     params = { :q => "simple:#{query}", 
       :fl => 'pubid,title,pubyear,pubtypeid,pubtype_sv,pubtype_en,person,fulltext_url', 
       :start => start,
@@ -33,7 +33,7 @@ class SolrPublication < ActiveRecord::Base
   end
 
   def self.get_publication(pubid)
-    uri = URI(SOLR_BASE_ULR + SOLR_PUBLICATION_INDEX)
+    uri = URI(SOLR_BASE_URL + SOLR_PUBLICATION_INDEX)
     params = { :q => "pubid:#{pubid}", 
       :fl => 'pubid,title,pubyear,pubtypeid,pubtype_sv,pubtype_en,language_id,language_en,language_sv,person,fulltext_url,abstract', 
       :wt => 'json' }
