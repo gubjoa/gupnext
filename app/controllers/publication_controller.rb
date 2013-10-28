@@ -73,7 +73,8 @@ class PublicationController < ApplicationController
     publication = Publication.find_by_id(publication_id)
     
     if publication
-      if publication.destroy
+      publication.update_attributes({:deleted_at => Time.now})
+      if publication.save
         status = "200 OK"
       end
     else
